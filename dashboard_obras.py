@@ -1,12 +1,12 @@
 import os
 from dotenv import load_dotenv
-from sqlalchemy import create_engine, Column, Integer, String, ForeignKey
-from sqlalchemy import func
+from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, func
 from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 import pandas as pd
 import streamlit as st
 import plotly.express as px
-import socket
+
+st.set_page_config(page_title="Dashboard de Obras", layout="wide")
 
 """ original_getaddrinfo = socket.getaddrinfo
 def force_ipv4_getaddrinfo(*args, **kwargs):
@@ -70,7 +70,7 @@ def obtener_resumen_por_cuadrilla():
     return pd.DataFrame(result, columns=["cuadrilla", "tipo_obra", "total_obras"])
 
 # Estilo del dashboard
-st.set_page_config(page_title="Dashboard de Obras", layout="wide")
+
 st.markdown("""
     <style>
         body {
