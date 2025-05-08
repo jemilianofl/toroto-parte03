@@ -5,13 +5,13 @@ from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 import pandas as pd
 import streamlit as st
 import plotly.express as px
+import socket
 
-st.set_page_config(page_title="Dashboard de Obras", layout="wide")
-
-""" original_getaddrinfo = socket.getaddrinfo
+# ⚙️ Forzar solo conexiones IPv4 para evitar errores con IPv6
+original_getaddrinfo = socket.getaddrinfo
 def force_ipv4_getaddrinfo(*args, **kwargs):
     return [info for info in original_getaddrinfo(*args, **kwargs) if info[0] == socket.AF_INET]
-socket.getaddrinfo = force_ipv4_getaddrinf """
+socket.getaddrinfo = force_ipv4_getaddrinfo
 
 # Cargar variables de entorno
 load_dotenv()
